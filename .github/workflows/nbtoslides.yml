@@ -11,9 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: pip install -r requirements.txt
-      - run: nbmerge intro.ipynb TP1/LXM.ipynb TP2/TP2.ipynb > merged.ipynb
-      - run: jupyter nbconvert merged.ipynb --to slides
-      - run: mv merged.slides.html index.html
+      - run: nbmerge intro.ipynb TP1/LXM.ipynb TP2/TP2.ipynb > TPs.ipynb
+      - run: ipython kernel install --name "python3" --user
+      - run: jupyter nbconvert --execute TPs.ipynb --to slides
+      - run: mv TPs.slides.html index.html
       - uses: EndBug/add-and-commit@v9
         with:
           add: 'index.html'
