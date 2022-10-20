@@ -1,0 +1,21 @@
+name: Convert notebooks to slides
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  node-to-gh:
+    runs-on: ubuntu-latest
+    name: Convert notebooks to slides
+    steps:
+      - uses: actions/checkout@v2
+      - run: pip install -r requirements.txt
+      - run: nbmerge intro.ipynb TP1/LXM.ipynb TP2/TP2.ipynb > merged.ipynb
+      - run: jupyter nbconvert merged.ipynb --to slides
+      - run: mv merged.slides.html index.html
+      - uses: EndBug/add-and-commit@v9
+        with:
+          add: 'index.html'
+          message: Publish notebooks on html
+          default_author: github_actions
