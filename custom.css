@@ -1,0 +1,4 @@
+/* este archivo se carga en la segunda celda, oculta, de intro.ipynb */
+.reveal .slides {
+    width: 40% !important;
+}
