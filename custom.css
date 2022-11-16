@@ -1,12 +1,16 @@
 /* este archivo se carga en la segunda celda, oculta, de intro.ipynb */
-.reveal .slides {
-    width: 95% !important;
-}
-    
 .reveal .jp-Cell-inputWrapper pre {
     font-size: medium !important;
 }
-    
+
 .reveal .jp-Cell-outputWrapper pre {
     font-size: medium !important;
+}
+
+.reveal .jp-InputArea-prompt {
+    display: none;
+}
+
+.reveal .jp-OutputArea-prompt {
+    display: none;
 }
